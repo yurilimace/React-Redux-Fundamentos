@@ -1,7 +1,9 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import MessageReducer from "./reducers/message";
 import UserReducer from "./reducers/user";
 import { combineReducers } from "redux";
+import thunk from "redux-thunk";
+import DogsReducer from "./reducers/dogs";
 const initialState = { message: "" };
 
 // const reducer = (state = initialState, action) => {
@@ -15,7 +17,12 @@ const initialState = { message: "" };
 // };
 
 const store = createStore(
-  combineReducers({ User: UserReducer, Message: MessageReducer })
+  combineReducers({
+    User: UserReducer,
+    Message: MessageReducer,
+    Dogs: DogsReducer,
+  }),
+  applyMiddleware(thunk)
 );
 
 export default store;
