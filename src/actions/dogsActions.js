@@ -2,7 +2,6 @@ import BaseApi from "../backend/baseApi";
 
 export function LoadDogList() {
   return async (dispatch) => {
-    // eslint-disable-next-line no-undef
     const { data } = await BaseApi.get("/list/all");
     const reponseListHandler = Object.keys(data.message).map((x) => {
       if (data.message[x].length > 0) {

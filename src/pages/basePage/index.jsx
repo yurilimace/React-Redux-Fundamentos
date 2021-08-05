@@ -25,7 +25,9 @@ const BasePage = () => {
         click me
       </button>
       <button onClick={() => dispatch(ChangeMessage())}>click me</button>
-      <button onClick={() => dispatch(LoadDogList())}>show dog list</button>
+      <button onClick={() => dispatch({ type: "ACTION_DISPATCH_SAGA" })}>
+        show dog list
+      </button>
       <div style={{ marginLeft: "10px" }}>
         {selector.Dogs.listofDogs.map((e) => (
           <>
